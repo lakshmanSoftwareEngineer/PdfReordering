@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Your Files</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8 text-center">
+        <h1 class="text-3xl font-bold text-green-600 mb-4">Success!</h1>
+        <p class="text-gray-600 mb-8">Your PDF has been split. Download your files below.</p>
+        
+        <div class="space-y-4">
+            <% if (oddFile) { %>
+                <a href="/<%= oddFile %>" download class="block w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-300">
+                    Download first part (Odd Pages)
+                </a>
+            <% } %>
+            
+            <% if (evenFile) { %>
+                <a href="/<%= evenFile %>" download class="block w-full bg-purple-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-purple-700 transition-colors duration-300">
+                    Download second part (Even Pages)
+                </a>
+            <% } %>
+        </div>
+
+        <div class="mt-8">
+            <a href="/" class="text-blue-600 hover:underline">Split another PDF</a>
+        </div>
+    </div>
+</body>
+</html>
